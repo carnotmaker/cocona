@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更自然的雲朵導覽列</title>
+    <style>
+        /* 通用設定 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #87ceeb, #f0f8ff); /* 藍天背景 */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 雲朵導覽列 */
+        .cloud-navbar {
+            width: 90%;
+            max-width: 1200px;
+            padding: 40px;
+            background: linear-gradient(to bottom, #fff, #e6e6e6); /* 雲朵的漸變 */
+            border-radius: 100px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* 雲朵陰影 */
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            position: relative;
+        }
+
+        /* 左側雲層 */
+        .cloud-navbar::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 200px;
+            top: -80px;
+            left: -50px;
+            background: inherit;
+            border-radius: 50%;
+            box-shadow: inherit;
+        }
+
+        /* 右側雲層 */
+        .cloud-navbar::after {
+            content: '';
+            position: absolute;
+            width: 450px;
+            height: 250px;
+            top: -90px;
+            right: -70px;
+            background: inherit;
+            border-radius: 50%;
+            box-shadow: inherit;
+        }
+
+        /* 中間小雲層 */
+        .cloud-layer1,
+        .cloud-layer2,
+        .cloud-layer3 {
+            position: absolute;
+            background: inherit;
+            border-radius: 50%;
+            box-shadow: inherit;
+        }
+
+        .cloud-layer1 {
+            width: 300px;
+            height: 180px;
+            top: -100px;
+            left: 20%;
+        }
+
+        .cloud-layer2 {
+            width: 200px;
+            height: 120px;
+            top: -140px;
+            right: 25%;
+        }
+
+        .cloud-layer3 {
+            width: 150px;
+            height: 100px;
+            top: -120px;
+            left: 50%;
+        }
+
+        /* 導覽連結 */
+        .cloud-navbar a {
+            text-decoration: none;
+            color: #555;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.9); /* 雲朵內連結背景 */
+            border-radius: 30px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        /* 懸浮效果 */
+        .cloud-navbar a:hover {
+            transform: translateY(-5px); /* 浮動效果 */
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- 更自然的雲朵導覽列 -->
+    <nav class="cloud-navbar">
+        <!-- 額外雲層 -->
+        <div class="cloud-layer1"></div>
+        <div class="cloud-layer2"></div>
+        <div class="cloud-layer3"></div>
+        <!-- 導覽連結 -->
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Contact</a>
+    </nav>
+</body>
+</html>

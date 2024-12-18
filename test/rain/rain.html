@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下雨動畫效果</title>
+    <style>
+        /* 全局樣式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 頁面背景 */
+        .content {
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            background-size: cover; /* 背景圖填滿整個畫面 */
+        }
+
+        /* 雨滴容器 */
+        #rainBox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none; /* 確保點擊事件不受雨滴影響 */
+            overflow: hidden; /* 防止雨滴超出容器 */
+        }
+
+        /* 雨滴樣式 */
+        .rain {
+            position: absolute;
+            width: 2px;
+            height: 50px;
+            background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.6)); /* 漸變效果 */
+            opacity: 0; /* 初始透明度 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景內容 -->
+    <div class="content"></div>
+    <!-- 雨滴容器 -->
+    <div id="rainBox"></div>
+
+    <script>
+        const box = document.getElementById('rainBox'); // 雨滴容器
+        let boxHeight = box.clientHeight; // 容器高度
+        let boxWidth = box.clientWidth; // 容器寬度
+
+        // 當視窗大小變動時更新容器寬高
+        window.onresize = function () {
+            boxHeight = box.clientHeight;
+            boxWidth = box.clientWidth;
+        };
+
+        // 定時生成雨滴
+        setInterval(() => {
+            const rain = document.createElement('div'); // 創建雨滴
+            rain.classList.add('rain'); // 添加 rain 類
+            rain.style.top = 0; // 初始位置
+            rain.style.left = Math.random() * boxWidth + 'px'; // 隨機水平位置
+            rain.style.opacity = Math.random(); // 隨機透明度
+            box.appendChild(rain); // 將雨滴添加到容器中
+
+            let speed = 1; // 初始速度
+            const timer = setInterval(() => {
+                // 讓雨滴下落
+                if (parseInt(rain.style.top) > boxHeight) {
+                    clearInterval(timer); // 超出容器高度時停止定時器
+                    box.removeChild(rain); // 移除雨滴元素
+                }
+                speed++; // 速度逐漸增加
+                rain.style.top = parseInt(rain.style.top) + speed + 'px';
+            }, 20); // 每 20 毫秒移動一次
+        }, 50); // 每 50 毫秒生成一個新的雨滴
+    </script>
+</body>
+</html>

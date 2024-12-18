@@ -1,0 +1,75 @@
+/* 基本重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* 導覽列樣式 */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+    position: relative;
+  }
+  
+  /* 漢堡圖示樣式 */
+  .menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+    display: none; /* 預設隱藏，響應式才顯示 */
+  }
+  
+  /* 選單樣式 */
+  .nav-links {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-links li {
+    margin: 0 15px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #ff9800;
+  }
+  
+  /* 響應式設計 */
+  @media (max-width: 768px) {
+    /* 顯示漢堡圖示 */
+    .menu-icon {
+      display: block;
+    }
+  
+    /* 隱藏選單，待開啟時才顯示 */
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: #333;
+      width: 100%;
+      text-align: center;
+    }
+  
+    /* 當選單被打開時顯示 */
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .nav-links li {
+      margin: 10px 0;
+    }
+  }
+  

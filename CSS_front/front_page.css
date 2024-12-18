@@ -1,0 +1,173 @@
+body, h1, ul, li, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+ 
+}
+body{
+    background-color: #a8a8a8;
+}
+/* 圖片_響應式&樣式 參考 : https://www.w3schools.com/css/css3_images.asp */
+
+/* 雲朵樣式 */
+.clouds_nav {
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+    background-color: aliceblue;
+    opacity: 0.5;
+    margin: 0px;
+}
+
+/* －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ */
+
+
+/* --------------下雨效果------------ */
+#rainCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    /* 確保它在背景層 */
+    pointer-events: none;
+    /* 避免影響頁面其他互動 */
+}
+
+/* ----------------------------------------- */
+
+
+
+
+
+
+/* ---------------------------------以下為main---------------------------------------------------------- */
+main {
+    position: relative;
+    z-index: 1;
+    /* 數值越大，層級越高 */
+}
+
+.backgrund_img {
+    background-image: url(../IMG_front/雨都基隆.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 100%;
+    height: 600px;
+
+
+    position: relative;
+    z-index: -1;
+    /* 數值越大，層級越高 */
+}
+
+
+
+
+
+
+/* －－－－－－－－－－－－－－－－－以下為footer－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－ */
+footer {
+    position: relative;
+    z-index: 1;
+    /* 數值越大，層級越高 */
+}
+
+.footer_bottom_information {
+    display: flex;
+    justify-content: space-between;
+    /* 使區塊均勻分布 */
+    align-items: flex-start;
+    /* 垂直對齊到頂部 */
+    padding: 20px;
+    margin-top: 80px;
+
+    width: 100%;
+    height: 270px;
+    background: rgb(44, 44, 50);
+    clear: both;
+}
+
+.left {
+    text-align: left;
+
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: left;
+
+}
+
+
+
+/* 以下文字調整 */
+h3 {
+    margin-left: 5%;
+}
+
+.footer-nav {
+    margin-left: -122px;
+    text-shadow:
+        1px 1px 1px #919191,
+        1px 2px 1px #919191,
+        1px 3px 1px #919191,
+        1px 4px 1px #919191,
+        1px 5px 1px #919191,
+        1px 6px 1px #919191,
+        1px 7px 1px #919191,
+        1px 8px 1px #919191,
+        1px 9px 1px #919191,
+        1px 10px 1px #919191,
+        1px 18px 6px rgba(49, 49, 49, 0.4),
+        1px 22px 10px rgba(49, 49, 49, 0.4),
+        1px 25px 35px rgba(49, 49, 49, 0.4),
+        1px 30px 60px rgba(49, 49, 49, 0.4);
+    color: #C2E0EB;
+    width: 100%;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 以上文字調整 */
+
+
+
+.left,
+.center,
+.right {
+    flex: 1;
+    /* 每個區塊的寬度將是相等的 */
+    padding: 0 15px;
+    /* 左右留點間隔 */
+}
+
+button {
+    /* margin-top: 5%; */
+    border-radius: 50%;
+    padding: 10px;
+    background-color: #d4e6ed;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 981px) {
+    .item {
+        flex: 1 1 100%;
+        /* 每行 1 個物件 */
+        color: blue;
+        font-size: 18px;
+        /* 放大字體 */
+    }
+
+}

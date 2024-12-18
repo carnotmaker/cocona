@@ -1,0 +1,96 @@
+/*------------------------------- 方法二: -------------------*/
+
+
+
+
+
+
+
+/*------------------------------- 方法一: -------------------*/
+/* 通用樣式 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f4f4; /* 背景顏色 */
+}
+
+header, main {
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  flex: 1; /* 主內容撐開頁面 */
+}
+
+/* Footer樣式 */
+footer {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff; /* 背景顏色 */
+  padding: 50px 0;  /* 給footer留點空間 */
+  overflow: hidden; /* 防止波浪超出footer區域 */
+  z-index: 1;
+}
+/* ------------------------------------------------------------------------------- */
+/* banner區域 */
+.banner {
+  width: 100%;
+  height: 200px; /* 設定為較小的高度，適合footer */
+  position: relative;
+  z-index: 0; /* 確保波浪在文字之下 */
+}
+
+/* 文字區域 */
+.banner h2 {
+  position: absolute;
+  color: #e66e6e;
+  top: 7vw;
+  left: 50%;
+  transform: translate(-100%, -50%);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0px 1px 2px rgba(black, 0.1);
+  font-size: 3vw;
+}
+
+/* 波浪樣式 */
+.banner .wave {
+  background-color: #223bc9;
+  width: 200vw;  /* 波浪寬度設大，讓它能夠水平滾動 */
+  height: 200vw;  /* 波浪高度設大，讓其能夠展開 */
+  opacity: 0.4;/* 不透明度 */
+  position: absolute;
+  top: -75vw;
+  left: 50%;
+  margin-left: -100vw;
+  margin-top: -100vw;
+  border-radius: 43%;
+  animation: rotate 9000ms infinite linear; /* 設定波浪的旋轉動畫 */
+}
+
+/* 第1層波浪 */
+.banner .wave:nth-child(1) {
+  animation: rotate 12000ms infinite linear;
+}
+
+/* 第2層波浪 */
+.banner .wave:nth-child(2) {
+  animation: rotate 15000ms infinite linear;
+  opacity: 0.1;
+  background-color: #777; /* 第二層波浪顏色 */
+}
+
+/* 旋轉動畫效果 */
+@keyframes rotate {
+  0% {
+    transform: rotate(300deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
